@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "build": "NODE_ENV=prod gulp build",
+    "dev": "gulp watch"
+  },
+  "dependencies": {
+    "glob-parent": "^6.0.1",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.19",
+    "esbuild-plugin-sass": "^0.6.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-esbuild": "^0.8.5",
+    "gulp-rename": "^2.0.0",
+    "yargs": "^17.3.0"
+  }
+}
