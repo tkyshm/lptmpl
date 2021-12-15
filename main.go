@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"lptmpl/logger"
 	"net/http"
 	"os"
 
@@ -52,6 +53,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 		"tpls/_footer.html.tpl",
 	)
 	if err != nil {
+		logger.Error(err)
+		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "500 Internal Server Error")
 		return
 	}
@@ -59,6 +62,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 	data := Data{Meta: siteMeta}
 
 	if err := tpl.Execute(w, data); err != nil {
+		logger.Error(err)
+		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "500 Internal Server Error")
 		return
 	}
